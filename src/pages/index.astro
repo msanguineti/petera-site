@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout
@@ -26,7 +27,7 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				<p class="muted" style="margin-top: 1rem;">
 					Store links can be added when listings are ready:
-					<a href="APP_STORE_URL">App Store</a> and <a href="PLAY_STORE_URL">Google Play</a>.
+					<a href={siteConfig.appStoreUrl}>App Store</a> and <a href={siteConfig.playStoreUrl}>Google Play</a>.
 				</p>
 			</div>
 			<div class="hero-art" aria-hidden="true">

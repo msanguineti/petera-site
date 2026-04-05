@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { siteConfig } from '../config/site';
 
 interface Props {
 	title: string;
@@ -77,8 +78,8 @@ const navItems = [
 				</div>
 				<div>
 					<p class="footer-title">Contact</p>
-					<p><a href="mailto:YOUR_CONTACT_EMAIL">YOUR_CONTACT_EMAIL</a></p>
-					<p class="small-note">Copyright © YEAR YOUR_NAME_OR_ENTITY</p>
+					<p><a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a></p>
+					<p class="small-note">Copyright © {siteConfig.copyrightYear} {siteConfig.ownerEntity}</p>
 				</div>
 			</div>
 		</footer>

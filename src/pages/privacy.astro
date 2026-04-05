@@ -1,14 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout title="Privacy Policy">
 	<section class="article">
 		<div class="shell">
 			<h1>Privacy Policy</h1>
-			<p class="muted">Effective date: <span class="code-like">EFFECTIVE_DATE</span></p>
+			<p class="muted">Effective date: <span class="code-like">{siteConfig.effectiveDate}</span></p>
 			<p class="copy">
-				Petera is provided by <span class="code-like">YOUR_NAME_OR_ENTITY</span> ("we", "us",
+				Petera is provided by <span class="code-like">{siteConfig.ownerEntity}</span> ("we", "us",
 				or "our"). This Privacy Policy explains how Petera currently handles information when
 				you use the app and this website.
 			</p>
@@ -114,7 +115,7 @@ import Layout from '../layouts/Layout.astro';
 			<p>
 				Petera is not specifically directed to children under the age of 13. If you believe
 				personal information from a child has been provided in a way that creates a legal issue,
-				contact us at <span class="code-like">YOUR_CONTACT_EMAIL</span>.
+				contact us at <span class="code-like">{siteConfig.supportEmail}</span>.
 			</p>
 
 			<h2>11. Changes to this policy</h2>
@@ -126,9 +127,9 @@ import Layout from '../layouts/Layout.astro';
 			<h2>12. Contact</h2>
 			<p>If you have questions about this Privacy Policy, you can contact:</p>
 			<ul>
-				<li><span class="code-like">YOUR_NAME_OR_ENTITY</span></li>
-				<li><span class="code-like">YOUR_CONTACT_EMAIL</span></li>
-				<li><span class="code-like">YOUR_COUNTRY_OR_JURISDICTION</span> if applicable</li>
+				<li><span class="code-like">{siteConfig.ownerEntity}</span></li>
+				<li><span class="code-like">{siteConfig.supportEmail}</span></li>
+				<li><span class="code-like">{siteConfig.countryOrJurisdiction}</span> if applicable</li>
 			</ul>
 		</div>
 	</section>

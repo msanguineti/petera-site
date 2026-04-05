@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
+
+const supportEmail = siteConfig.supportEmail;
 
 const faqs = [
 	{
@@ -59,11 +62,11 @@ const faqs = [
 	{
 		question: 'How do I report a bug?',
 		answer:
-			'Email YOUR_CONTACT_EMAIL and include: device model, OS version, app version, a clear description of the issue, steps to reproduce it, and screenshots if relevant.'
+			`Email ${supportEmail} and include: device model, OS version, app version, a clear description of the issue, steps to reproduce it, and screenshots if relevant.`
 	},
 	{
 		question: 'How do I request support?',
-		answer: 'For general help, questions, or feedback, use YOUR_CONTACT_EMAIL.'
+		answer: `For general help, questions, or feedback, use ${supportEmail}.`
 	}
 ];
 ---
@@ -81,7 +84,7 @@ const faqs = [
 				<h2 style="margin-top: 0;">Contact</h2>
 				<p>
 					Support email:
-					<a href="mailto:YOUR_CONTACT_EMAIL"><span class="code-like">YOUR_CONTACT_EMAIL</span></a>
+					<a href={`mailto:${supportEmail}`}><span class="code-like">{supportEmail}</span></a>
 				</p>
 				<p>When reporting a bug, please include:</p>
 				<ul class="page-list">

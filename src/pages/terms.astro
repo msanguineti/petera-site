@@ -1,12 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout title="Terms of Use" description="Lightweight starter terms for Petera.">
 	<section class="article">
 		<div class="shell">
 			<h1>Terms of Use</h1>
-			<p class="muted">Effective date: <span class="code-like">EFFECTIVE_DATE</span></p>
+			<p class="muted">Effective date: <span class="code-like">{siteConfig.effectiveDate}</span></p>
 
 			<div class="review-note copy" role="note">
 				This page is a starter template and should be reviewed before publication.
@@ -14,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
 
 			<p class="copy">
 				These Terms of Use govern your use of Petera and this website, provided by
-				<span class="code-like">YOUR_NAME_OR_ENTITY</span>.
+				<span class="code-like">{siteConfig.ownerEntity}</span>.
 			</p>
 
 			<h2>1. Use of the app</h2>
@@ -39,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
 			<h2>4. Intellectual property</h2>
 			<p>
 				Unless otherwise stated, the Petera name, website content, branding, and related
-				materials are owned by <span class="code-like">YOUR_NAME_OR_ENTITY</span> or used with
+				materials are owned by <span class="code-like">{siteConfig.ownerEntity}</span> or used with
 				permission.
 			</p>
 
@@ -55,14 +56,14 @@ import Layout from '../layouts/Layout.astro';
 			<h2>7. Contact</h2>
 			<p>If you have questions about these Terms, contact:</p>
 			<ul>
-				<li><span class="code-like">YOUR_NAME_OR_ENTITY</span></li>
-				<li><span class="code-like">YOUR_CONTACT_EMAIL</span></li>
+				<li><span class="code-like">{siteConfig.ownerEntity}</span></li>
+				<li><span class="code-like">{siteConfig.supportEmail}</span></li>
 			</ul>
 
 			<h2>8. Jurisdiction placeholder</h2>
 			<p>
 				These Terms should be reviewed and adjusted for the laws and consumer-rights rules that
-				apply to <span class="code-like">YOUR_JURISDICTION</span>.
+				apply to <span class="code-like">{siteConfig.jurisdiction}</span>.
 			</p>
 		</div>
 	</section>

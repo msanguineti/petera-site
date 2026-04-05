@@ -29,6 +29,25 @@ npm run preview
 
 Static output is generated in `dist/`.
 
+## Centralized site values (.env)
+
+This project reads publish-time values from environment variables through `src/config/site.ts`.
+
+1. Copy `.env.example` to `.env`.
+2. Fill in the values once.
+3. Run `npm run dev` or `npm run build`.
+
+Variables:
+
+- `PUBLIC_OWNER_ENTITY`
+- `PUBLIC_SUPPORT_EMAIL`
+- `PUBLIC_EFFECTIVE_DATE`
+- `PUBLIC_COUNTRY_OR_JURISDICTION`
+- `PUBLIC_JURISDICTION`
+- `PUBLIC_APP_STORE_URL`
+- `PUBLIC_PLAY_STORE_URL`
+- `PUBLIC_COPYRIGHT_YEAR`
+
 ## GitHub Pages deployment
 
 This project is configured for static output in `astro.config.mjs`.
@@ -65,19 +84,12 @@ Typical configuration examples:
 └── astro.config.mjs
 ```
 
-## Pre-publish placeholders
+## Pre-publish checklist
 
-Replace the following values before publishing:
+Before publishing:
 
-- `YOUR_NAME_OR_ENTITY`
-- `YOUR_CONTACT_EMAIL`
-- `EFFECTIVE_DATE`
-- `YOUR_COUNTRY_OR_JURISDICTION`
-- `YOUR_JURISDICTION`
-- `APP_STORE_URL`
-- `PLAY_STORE_URL`
-- Final GitHub Pages URL
-- Final copyright line
+- Verify `.env` has final values.
+- Set final GitHub Pages URL in `astro.config.mjs` (`site` and `base`).
 
 ## Final factual checks before launch
 
