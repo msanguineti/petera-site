@@ -1,6 +1,6 @@
-# Petera Public Website
+# Petera Website
 
-Static Astro site for the public Petera website. The site includes four core pages:
+Static Astro site for the Petera website. The site includes four core pages:
 
 - Home
 - Privacy
