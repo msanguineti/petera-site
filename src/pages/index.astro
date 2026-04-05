@@ -1,11 +1,112 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Petera"
+	description="Petera is a lightweight reminder app for things that matter but do not happen at an exact time. Local-first, calm, and privacy-minded."
+>
+	<section class="section">
+		<div class="shell hero-grid">
+			<div>
+				<p class="eyebrow">Lightweight reminders</p>
+				<h1>Reminders for things that still matter</h1>
+				<p class="subhead">
+					Petera helps you keep track of follow-ups, chores, and personal commitments that
+					matter, without turning them into a full task system or exact-time alarm.
+				</p>
+				<p class="copy">
+					Some things are important, but they do not belong on a 9:00 alarm. "Send the email
+					this week." "Water the plants." "Review the budget this quarter." Petera is built
+					for that kind of reminder.
+				</p>
+				<div class="button-row">
+					<a class="button-primary" href="/privacy">Privacy Policy</a>
+					<a class="button-secondary" href="/support">Support</a>
+				</div>
+				<p class="muted" style="margin-top: 1rem;">
+					Store links can be added when listings are ready:
+					<a href="APP_STORE_URL">App Store</a> and <a href="PLAY_STORE_URL">Google Play</a>.
+				</p>
+			</div>
+			<div class="hero-art" aria-hidden="true">
+				<img src="/assets/petera-icon.svg" alt="" />
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell">
+			<h2>Built for reminders with a meaningful window</h2>
+			<p class="copy">
+				Petera is designed for reminders that should come back while they still matter, rather
+				than at one exact minute. You can set one-time reminders, repeating reminders,
+				time-of-day filters, selected weekdays, and quiet hours, then let the app bring them
+				back in a calmer way.
+			</p>
+			<div class="card-grid">
+				<article class="card">
+					<h3>What Petera is</h3>
+					<ul>
+						<li>One-time reminders for windows like today, this week, this month, or by date</li>
+						<li>Repeating reminders for day, week, month, quarter, or year cadences</li>
+						<li>Time-of-day and weekday filters</li>
+						<li>Quiet hours</li>
+						<li>Optional local History and Insights</li>
+						<li>Local export and import</li>
+					</ul>
+				</article>
+				<article class="card">
+					<h3>How reminders work</h3>
+					<p>
+						Depending on how you set a reminder up, it can come back within a day, week, month,
+						or another meaningful period until it is done.
+					</p>
+					<p class="muted" style="margin-bottom: 0;">
+						This is intentionally different from exact-time pressure alarms.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell split">
+			<article class="callout">
+				<h2>Not a task manager, calendar alarm, or productivity dashboard</h2>
+				<p>
+					Petera is intentionally lightweight. It is not trying to replace your calendar,
+					project planner, or collaboration tools. It is for personal reminders that need
+					follow-up, not an overloaded productivity system.
+				</p>
+			</article>
+			<article class="callout">
+				<h2>Local-first by default</h2>
+				<p>
+					Petera keeps reminder data on your device unless you explicitly export it. The current
+					app focuses on local reminder management, local notifications, and user-initiated
+					export and import rather than cloud sync.
+				</p>
+				<p class="muted" style="margin-bottom: 0;">
+					Export and import live under Settings &gt; Data. Encrypted export is the default path,
+					and import is currently a replace-local-data flow.
+				</p>
+			</article>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="shell surface" style="padding: clamp(1.2rem, 4vw, 2rem);">
+			<h2>Looking for privacy or support details?</h2>
+			<p class="copy">
+				If you need the app's privacy policy, support information, or a place to report an
+				issue, those pages are linked below.
+			</p>
+			<div class="button-row" style="margin-top: 0;">
+				<a class="button-secondary" href="/privacy">Read the Privacy Policy</a>
+				<a class="button-secondary" href="/support">Get Support</a>
+				<a class="button-secondary" href="/terms">Read Terms</a>
+			</div>
+		</div>
+	</section>
 </Layout>

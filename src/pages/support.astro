@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+	{
+		question: 'What is Petera?',
+		answer:
+			'Petera is a lightweight reminder app for things that matter but do not happen at an exact time. It is for reminders like "send the email this week" or "review the budget this quarter," not a full task-management system.'
+	},
+	{
+		question: 'What is Petera not meant to replace?',
+		answer:
+			'Petera is not intended to replace your calendar, a team project manager, or a full task dashboard. It is a focused reminder tool.'
+	},
+	{
+		question: 'How do reminders work?',
+		answer:
+			'Petera is built around reminder windows that still make sense for the task. Depending on how you set a reminder up, it may come back within a day, week, month, or other meaningful period until it is done.'
+	},
+	{
+		question: 'Does Petera use exact-time alarms?',
+		answer:
+			'Not as its main model. Petera is designed for reminders that belong in a meaningful window rather than one exact minute.'
+	},
+	{
+		question: 'Why does Petera need notification permission?',
+		answer:
+			'Petera uses notifications to surface reminders when you are not already in the app. Without notification permission, the app may be less able to bring reminders back at the right time.'
+	},
+	{
+		question: 'Is my data stored locally?',
+		answer:
+			'The current product direction is local-first. Reminder data stays on device unless you explicitly export it.'
+	},
+	{
+		question: 'Does Petera sync between devices?',
+		answer:
+			'The current app direction is local-first and does not currently center on sync. If that changes later, the website and privacy materials should be updated.'
+	},
+	{
+		question: 'Can I export my data?',
+		answer: 'Yes. Petera currently supports manual local export and import under Settings > Data.'
+	},
+	{
+		question: 'Is export encrypted?',
+		answer:
+			'Encrypted export is the default path in the current version. Users choose the password used for encrypted export.'
+	},
+	{
+		question: 'What happens when I import data?',
+		answer:
+			'The current import flow is replace-only. It is designed to replace local reminder data and supported saved settings on the device rather than merge multiple reminder sets together.'
+	},
+	{
+		question: 'What are History and Insights?',
+		answer:
+			'History and Insights are optional features. History is a quiet record of user-meaningful reminder events and is off by default. Insights are local-only reminder activity summaries and are also off by default.'
+	},
+	{
+		question: 'How do I report a bug?',
+		answer:
+			'Email YOUR_CONTACT_EMAIL and include: device model, OS version, app version, a clear description of the issue, steps to reproduce it, and screenshots if relevant.'
+	},
+	{
+		question: 'How do I request support?',
+		answer: 'For general help, questions, or feedback, use YOUR_CONTACT_EMAIL.'
+	}
+];
+---
+
+<Layout title="Support" description="Support details, bug-report guidance, and FAQ for Petera.">
+	<section class="article">
+		<div class="shell">
+			<h1>Support</h1>
+			<p class="copy">
+				Need help with Petera? This page is the best place to find contact details, bug-report
+				guidance, and answers to common questions.
+			</p>
+
+			<div class="surface" style="padding: clamp(1rem, 3vw, 1.5rem); margin-top: 1.2rem;">
+				<h2 style="margin-top: 0;">Contact</h2>
+				<p>
+					Support email:
+					<a href="mailto:YOUR_CONTACT_EMAIL"><span class="code-like">YOUR_CONTACT_EMAIL</span></a>
+				</p>
+				<p>When reporting a bug, please include:</p>
+				<ul class="page-list">
+					<li>Device model</li>
+					<li>Operating system version</li>
+					<li>App version</li>
+					<li>What you expected to happen</li>
+					<li>What happened instead</li>
+					<li>Whether notifications were enabled</li>
+				</ul>
+				<p class="muted" style="margin-top: 1rem; margin-bottom: 0;">
+					We may not reply instantly, but detailed bug reports are much easier to act on.
+				</p>
+			</div>
+
+			<h2>FAQ</h2>
+			{
+				faqs.map((item) => (
+					<article class="faq-item">
+						<h3>{item.question}</h3>
+						<p>{item.answer}</p>
+					</article>
+				))
+			}
+
+			<p class="copy muted" style="margin-top: 1.5rem;">
+				If you are reaching out about a problem, the more concrete details you include, the
+				easier it is to investigate.
+			</p>
+		</div>
+	</section>
+</Layout>

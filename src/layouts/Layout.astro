@@ -1,23 +1,86 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = 'Petera is a lightweight reminder app for things that matter but do not happen at an exact time. Local-first, calm, and privacy-minded.' } = Astro.props;
+const path = Astro.url.pathname;
+
+const pageTitle = title === 'Petera' ? title : `${title} | Petera`;
+const navItems = [
+	{ href: '/', label: 'Home' },
+	{ href: '/privacy', label: 'Privacy' },
+	{ href: '/support', label: 'Support' },
+	{ href: '/terms', label: 'Terms' }
+];
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/assets/brand-mark.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/assets/petera-icon.svg" />
 	</head>
 	<body>
-		<slot />
+		<a class="skip-link" href="#content">Skip to content</a>
+		<header class="site-header">
+			<div class="shell header-inner">
+				<a class="brand-link" href="/" aria-label="Petera home">
+					<img src="/assets/brand-mark.svg" alt="" width="28" height="28" />
+					<span>Petera</span>
+				</a>
+				<nav aria-label="Primary">
+					<ul class="nav-list">
+						{
+							navItems.map((item) => (
+								<li>
+									<a href={item.href} aria-current={path === item.href ? 'page' : undefined}>
+										{item.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main id="content">
+			<slot />
+		</main>
+
+		<footer class="site-footer section">
+			<div class="shell footer-grid">
+				<div class="copy">
+					<p class="footer-title">Petera</p>
+					<p>Petera is a lightweight reminder app for things that matter but do not happen at an exact time.</p>
+				</div>
+				<div>
+					<p class="footer-title">Pages</p>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/privacy">Privacy</a></li>
+						<li><a href="/support">Support</a></li>
+						<li><a href="/terms">Terms</a></li>
+					</ul>
+				</div>
+				<div>
+					<p class="footer-title">Contact</p>
+					<p><a href="mailto:YOUR_CONTACT_EMAIL">YOUR_CONTACT_EMAIL</a></p>
+					<p class="small-note">Copyright © YEAR YOUR_NAME_OR_ENTITY</p>
+				</div>
+			</div>
+		</footer>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

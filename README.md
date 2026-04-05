@@ -1,46 +1,93 @@
-# Astro Starter Kit: Basics
+# Petera Public Website
+
+Static Astro site for the public Petera website. The site includes four core pages:
+
+- Home
+- Privacy
+- Support
+- Terms
+
+It is intentionally static and GitHub Pages compatible.
+
+## Local development
+
+From the project root:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The dev server runs at `http://localhost:4321` by default.
 
-## 🚀 Project Structure
+## Build and preview
 
-Inside of your Astro project, you'll see the following folders and files:
+```sh
+npm run build
+npm run preview
+```
+
+Static output is generated in `dist/`.
+
+## GitHub Pages deployment
+
+This project is configured for static output in `astro.config.mjs`.
+
+1. Set `site` and `base` in `astro.config.mjs`.
+2. Build with `npm run build`.
+3. Publish the `dist/` contents via your GitHub Pages workflow (for example, a Pages action that uploads `dist/`).
+
+Typical configuration examples:
+
+- User site repo (for example, `username.github.io`):
+	- `site: 'https://username.github.io'`
+	- `base: '/'`
+- Project site repo (for example, `petera-site`):
+	- `site: 'https://username.github.io'`
+	- `base: '/petera-site'`
+
+## Project structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   └── assets/
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── privacy.astro
+│   │   ├── support.astro
+│   │   └── terms.astro
+│   └── styles/
+│       └── global.css
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Pre-publish placeholders
 
-## 🧞 Commands
+Replace the following values before publishing:
 
-All commands are run from the root of the project, from a terminal:
+- `YOUR_NAME_OR_ENTITY`
+- `YOUR_CONTACT_EMAIL`
+- `EFFECTIVE_DATE`
+- `YOUR_COUNTRY_OR_JURISDICTION`
+- `YOUR_JURISDICTION`
+- `APP_STORE_URL`
+- `PLAY_STORE_URL`
+- Final GitHub Pages URL
+- Final copyright line
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Final factual checks before launch
 
-## 👀 Want to learn more?
+Confirm these statements are still true:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Petera is local-first
+- Reminder data stays on device unless exported by the user
+- Local export/import are available
+- Encrypted export is the default path
+- Import is replace-only
+- History is optional and off by default
+- Insights are optional and off by default
+- There is no sync-centered public product promise yet
