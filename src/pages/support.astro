@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FAQBento from '../components/FAQBento.astro';
 import { siteConfig } from '../config/site';
 
 const supportEmail = siteConfig.supportEmail;
@@ -8,27 +9,27 @@ const faqs = [
 	{
 		question: 'What is Petera?',
 		answer:
-			'Petera is a lightweight reminder app for things that matter but do not happen at an exact time. It is for reminders like "send the email this week" or "review the budget this quarter," not a full task-management system.'
+			'Petera is a lightweight reminder app that brings things back to your attention over time. It is for reminders you want to keep seeing again, not a full task-management system.'
 	},
 	{
 		question: 'What is Petera not meant to replace?',
 		answer:
-			'Petera is not intended to replace your calendar, a team project manager, or a full task dashboard. It is a focused reminder tool.'
+			'Petera is not intended to replace your calendar, a team project manager, or a full task hub. It is a focused reminder tool.'
 	},
 	{
 		question: 'How do reminders work?',
 		answer:
-			'Petera is built around reminder windows that still make sense for the task. Depending on how you set a reminder up, it may come back within a day, week, month, or other meaningful period until it is done.'
+			'You set a reminder, and Petera brings it back through notifications over time. Depending on how you configure it, that can mean daily reminders, reminders several times a day, or slower repeating reminders.'
 	},
 	{
 		question: 'Does Petera use exact-time alarms?',
 		answer:
-			'Not as its main model. Petera is designed for reminders that belong in a meaningful window rather than one exact minute.'
+			'Petera is not built around a single alarm that fires once and disappears. The core idea is that reminders can return over time until they are dealt with.'
 	},
 	{
 		question: 'Why does Petera need notification permission?',
 		answer:
-			'Petera uses notifications to surface reminders when you are not already in the app. Without notification permission, the app may be less able to bring reminders back at the right time.'
+			'Petera uses notifications to surface reminders when you are not already in the app. Without notification permission, it is much harder for the app to keep bringing reminders back to your attention.'
 	},
 	{
 		question: 'Is my data stored locally?',
@@ -57,7 +58,7 @@ const faqs = [
 	{
 		question: 'What are History and Insights?',
 		answer:
-			'History and Insights are optional features. History is a quiet record of user-meaningful reminder events and is off by default. Insights are local-only reminder activity summaries and are also off by default.'
+			'History and Insights are optional features. History is a record of user-meaningful reminder events and is off by default. Insights are local-only reminder activity summaries and are also off by default.'
 	},
 	{
 		question: 'How do I report a bug?',
@@ -76,12 +77,18 @@ const faqs = [
 		<div class="shell">
 			<h1>Support</h1>
 			<p class="copy">
-				Need help with Petera? This page is the best place to find contact details, bug-report
-				guidance, and answers to common questions.
+				This page brings together contact details, bug-report guidance, and answers to common
+				questions about Petera.
 			</p>
 
-			<div class="surface" style="padding: clamp(1rem, 3vw, 1.5rem); margin-top: 1.2rem;">
-				<h2 style="margin-top: 0;">Contact</h2>
+			<div class="intro-note copy">
+				<p>
+					If something is not working as expected, send a short report with the basics.
+				</p>
+			</div>
+
+			<div class="surface support-contact">
+				<h2 class="support-contact-title">Contact</h2>
 				<p>
 					Support email:
 					<a href={`mailto:${supportEmail}`}><span class="code-like">{supportEmail}</span></a>
@@ -95,25 +102,41 @@ const faqs = [
 					<li>What happened instead</li>
 					<li>Whether notifications were enabled</li>
 				</ul>
-				<p class="muted" style="margin-top: 1rem; margin-bottom: 0;">
-					We may not reply instantly, but detailed bug reports are much easier to act on.
+				<p class="muted support-contact-note">
+					We may not reply immediately, but detailed bug reports are much easier to investigate.
 				</p>
 			</div>
 
-			<h2>FAQ</h2>
-			{
-				faqs.map((item) => (
-					<article class="faq-item">
-						<h3>{item.question}</h3>
-						<p>{item.answer}</p>
-					</article>
-				))
-			}
+			<h2>Frequently Asked Questions</h2>
+			<FAQBento items={faqs} />
 
-			<p class="copy muted" style="margin-top: 1.5rem;">
-				If you are reaching out about a problem, the more concrete details you include, the
-				easier it is to investigate.
+			<p class="copy muted support-footer-note">
+				If you are writing about a problem, concrete details make it much easier to investigate.
 			</p>
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.support-contact {
+		padding: clamp(1rem, 3vw, 1.5rem);
+		margin-top: 1.2rem;
+	}
+
+	.support-contact-title {
+		margin-top: 0;
+	}
+
+	.support-contact-note,
+	.support-footer-note {
+		margin-bottom: 0;
+	}
+
+	.support-contact-note {
+		margin-top: 1rem;
+	}
+
+	.support-footer-note {
+		margin-top: 1.5rem;
+	}
+</style>

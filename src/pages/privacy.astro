@@ -3,7 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../config/site';
 ---
 
-<Layout title="Privacy Policy">
+<Layout
+	title="Privacy Policy"
+	description="How Petera handles data in the app and on this website."
+>
 	<section class="article">
 		<div class="shell">
 			<h1>Privacy Policy</h1>
@@ -13,6 +16,13 @@ import { siteConfig } from '../config/site';
 				or "our"). This Privacy Policy explains how Petera currently handles information when
 				you use the app and this website.
 			</p>
+
+			<div class="intro-note copy">
+				<p>
+					In short: Petera is built around on-device reminder data, local notifications, and
+					user-initiated export and import. This page explains what that means in practice.
+				</p>
+			</div>
 
 			<div class="review-note copy" role="note">
 				This is a practical starter privacy policy and should be reviewed before publishing.
@@ -108,7 +118,8 @@ import { siteConfig } from '../config/site';
 			<p>
 				However, the site may be hosted by third-party infrastructure such as GitHub Pages and
 				related delivery services, which may process standard technical request data as part of
-				normal web hosting operations.
+				normal web hosting operations. The exact hosting setup should be reviewed before
+				publication so this section remains accurate.
 			</p>
 
 			<h2>10. Children's privacy</h2>

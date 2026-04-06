@@ -1,113 +1,304 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { siteConfig } from '../config/site';
+
+function isConfigured(value: string, placeholder: string) {
+	return value.trim() !== placeholder;
+}
+
+const hasSupportEmail = isConfigured(siteConfig.supportEmail, 'YOUR_CONTACT_EMAIL');
+const hasAppStoreUrl = isConfigured(siteConfig.appStoreUrl, 'APP_STORE_URL');
+const hasPlayStoreUrl = isConfigured(siteConfig.playStoreUrl, 'PLAY_STORE_URL');
+const supportHref = hasSupportEmail ? `mailto:${siteConfig.supportEmail}` : '/support';
+const supportLabel = hasSupportEmail ? siteConfig.supportEmail : 'Open support details';
 ---
 
 <Layout
 	title="Petera"
-	description="Petera is a lightweight reminder app for things that matter but do not happen at an exact time. Local-first, calm, and privacy-minded."
+	description="Petera is a reminder app that brings things back over time. This site covers support, privacy, terms, and store links."
 >
-	<section class="section">
-		<div class="shell hero-grid">
-			<div>
-				<p class="eyebrow">Lightweight reminders</p>
-				<h1>Reminders for things that still matter</h1>
-				<p class="subhead">
-					Petera helps you keep track of follow-ups, chores, and personal commitments that
-					matter, without turning them into a full task system or exact-time alarm.
-				</p>
-				<p class="copy">
-					Some things are important, but they do not belong on a 9:00 alarm. "Send the email
-					this week." "Water the plants." "Review the budget this quarter." Petera is built
-					for that kind of reminder.
-				</p>
-				<div class="button-row">
-					<a class="button-primary" href="/privacy">Privacy Policy</a>
-					<a class="button-secondary" href="/support">Support</a>
+	<section class="section home">
+		<div class="shell home-stack">
+			<section class="hero-split" aria-labelledby="home-title">
+				<div class="hero-copy">
+					<p class="eyebrow">Petera</p>
+					<h1 id="home-title">A reminder app for things that should come back to your attention.</h1>
+					<p class="subhead home-subhead">
+						This site is here for the essentials: support, privacy, terms, and store links when
+						the app is available.
+					</p>
+					<div class="button-row home-actions">
+						<a href="/support" class="button-primary">Support</a>
+						<a href="/privacy" class="button-secondary">Privacy</a>
+						<a href="/terms" class="button-secondary">Terms</a>
+					</div>
 				</div>
-				<p class="muted" style="margin-top: 1rem;">
-					Store links can be added when listings are ready:
-					<a href={siteConfig.appStoreUrl}>App Store</a> and <a href={siteConfig.playStoreUrl}>Google Play</a>.
-				</p>
-			</div>
-			<div class="hero-art" aria-hidden="true">
-				<img src="/assets/petera-icon.svg" alt="" />
-			</div>
-		</div>
-	</section>
 
-	<section class="section">
-		<div class="shell">
-			<h2>Built for reminders with a meaningful window</h2>
-			<p class="copy">
-				Petera is designed for reminders that should come back while they still matter, rather
-				than at one exact minute. You can set one-time reminders, repeating reminders,
-				time-of-day filters, selected weekdays, and quiet hours, then let the app bring them
-				back in a calmer way.
-			</p>
-			<div class="card-grid">
-				<article class="card">
-					<h3>What Petera is</h3>
-					<ul>
-						<li>One-time reminders for windows like today, this week, this month, or by date</li>
-						<li>Repeating reminders for day, week, month, quarter, or year cadences</li>
-						<li>Time-of-day and weekday filters</li>
-						<li>Quiet hours</li>
-						<li>Optional local History and Insights</li>
-						<li>Local export and import</li>
-					</ul>
-				</article>
-				<article class="card">
-					<h3>How reminders work</h3>
+				<aside class="hero-panel surface" aria-label="Availability">
+					<div class="hero-panel-mark" aria-hidden="true">
+						<img src="/assets/petera-foreground.svg" alt="" width="72" height="72" />
+					</div>
+					<div class="hero-panel-block">
+						<p class="eyebrow">Availability</p>
+						<h2>Store links</h2>
+						<p>
+							App Store and Google Play links will appear here when the listings are ready.
+						</p>
+					</div>
+					<div class="store-links" aria-label="Store links">
+						{
+							hasAppStoreUrl ? (
+								<a href={siteConfig.appStoreUrl} class="store-link" target="_blank" rel="noreferrer">
+									App Store
+								</a>
+							) : (
+								<span class="store-link is-muted">App Store soon</span>
+							)
+						}
+						{
+							hasPlayStoreUrl ? (
+								<a href={siteConfig.playStoreUrl} class="store-link" target="_blank" rel="noreferrer">
+									Google Play
+								</a>
+							) : (
+								<span class="store-link is-muted">Google Play soon</span>
+							)
+						}
+					</div>
+					<p class="hero-panel-note">
+						Support:
+						<a href={supportHref}>{supportLabel}</a>
+					</p>
+				</aside>
+			</section>
+
+			<section class="link-grid" aria-label="Main pages">
+				<article class="link-card surface">
+					<p class="eyebrow">Privacy</p>
+					<h2>How data is handled</h2>
 					<p>
-						Depending on how you set a reminder up, it can come back within a day, week, month,
-						or another meaningful period until it is done.
+						What stays on device, how export and import work, and what this website does not
+						track.
 					</p>
-					<p class="muted" style="margin-bottom: 0;">
-						This is intentionally different from exact-time pressure alarms.
-					</p>
+					<a href="/privacy" class="card-link">Read the privacy policy</a>
 				</article>
-			</div>
-		</div>
-	</section>
 
-	<section class="section">
-		<div class="shell split">
-			<article class="callout">
-				<h2>Not a task manager, calendar alarm, or productivity dashboard</h2>
-				<p>
-					Petera is intentionally lightweight. It is not trying to replace your calendar,
-					project planner, or collaboration tools. It is for personal reminders that need
-					follow-up, not an overloaded productivity system.
-				</p>
-			</article>
-			<article class="callout">
-				<h2>Local-first by default</h2>
-				<p>
-					Petera keeps reminder data on your device unless you explicitly export it. The current
-					app focuses on local reminder management, local notifications, and user-initiated
-					export and import rather than cloud sync.
-				</p>
-				<p class="muted" style="margin-bottom: 0;">
-					Export and import live under Settings &gt; Data. Encrypted export is the default path,
-					and import is currently a replace-local-data flow.
-				</p>
-			</article>
-		</div>
-	</section>
+				<article class="link-card surface">
+					<p class="eyebrow">Support</p>
+					<h2>Contact and FAQ</h2>
+					<p>
+						Support contact details, bug report guidance, and short answers to common questions.
+					</p>
+					<a href="/support" class="card-link">Open support</a>
+				</article>
 
-	<section class="section">
-		<div class="shell surface" style="padding: clamp(1.2rem, 4vw, 2rem);">
-			<h2>Looking for privacy or support details?</h2>
-			<p class="copy">
-				If you need the app's privacy policy, support information, or a place to report an
-				issue, those pages are linked below.
-			</p>
-			<div class="button-row" style="margin-top: 0;">
-				<a class="button-secondary" href="/privacy">Read the Privacy Policy</a>
-				<a class="button-secondary" href="/support">Get Support</a>
-				<a class="button-secondary" href="/terms">Read Terms</a>
-			</div>
+				<article class="link-card surface">
+					<p class="eyebrow">Terms</p>
+					<h2>Use of the app and site</h2>
+					<p>
+						The basic legal terms for using Petera and this website.
+					</p>
+					<a href="/terms" class="card-link">Read the terms</a>
+				</article>
+			</section>
+
+			<section class="facts surface" aria-label="Key facts">
+				<div class="fact">
+					<p class="fact-label">Data</p>
+					<p class="fact-value">Local-first</p>
+					<p class="fact-copy">Reminder data stays on device unless you export it.</p>
+				</div>
+				<div class="fact">
+					<p class="fact-label">Notifications</p>
+					<p class="fact-value">Core behavior</p>
+					<p class="fact-copy">Petera brings reminders back over time through notifications.</p>
+				</div>
+				<div class="fact">
+					<p class="fact-label">Website</p>
+					<p class="fact-value">No extras</p>
+					<p class="fact-copy">This site is for support, legal pages, and store links.</p>
+				</div>
+			</section>
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.home {
+		padding-top: clamp(2rem, 5vw, 3.25rem);
+		padding-bottom: clamp(2.8rem, 6vw, 4.6rem);
+	}
+
+	.home-stack {
+		display: grid;
+		gap: clamp(1.25rem, 3vw, 1.75rem);
+	}
+
+	.hero-split {
+		display: grid;
+		grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+		gap: clamp(1.2rem, 4vw, 2rem);
+		align-items: stretch;
+	}
+
+	.hero-copy {
+		padding-block: clamp(0.4rem, 1vw, 0.75rem);
+	}
+
+	.home-subhead {
+		max-width: 34ch;
+		margin-bottom: 0;
+	}
+
+	.home-actions {
+		margin-top: clamp(1.4rem, 3vw, 2rem);
+	}
+
+	.hero-panel,
+	.link-card,
+	.facts {
+		border-radius: 18px;
+	}
+
+	.hero-panel {
+		display: grid;
+		gap: 1.1rem;
+		padding: clamp(1.2rem, 3vw, 1.45rem);
+		align-content: start;
+		background:
+			linear-gradient(180deg, rgba(252, 250, 245, 0.96), rgba(245, 241, 232, 0.92));
+	}
+
+	.hero-panel-mark img {
+		display: block;
+		filter: drop-shadow(0 10px 22px rgba(54, 73, 144, 0.14));
+	}
+
+	.hero-panel-block h2 {
+		font-size: clamp(1.45rem, 3vw, 1.9rem);
+		margin-bottom: 0.55rem;
+	}
+
+	.hero-panel-block p,
+	.link-card p,
+	.fact-copy {
+		color: var(--petera-text-soft);
+	}
+
+	.hero-panel-note {
+		margin-bottom: 0;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(201, 189, 175, 0.72);
+		color: var(--petera-text-muted);
+	}
+
+	.store-links {
+		display: grid;
+		gap: 0.7rem;
+	}
+
+	.store-link {
+		color: var(--petera-text);
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		width: fit-content;
+	}
+
+	.store-link.is-muted {
+		color: var(--petera-text-muted);
+		text-decoration: none;
+	}
+
+	.link-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.link-card {
+		padding: clamp(1.15rem, 3vw, 1.35rem);
+	}
+
+	.link-card h2 {
+		font-size: clamp(1.4rem, 3vw, 1.85rem);
+		margin-bottom: 0.6rem;
+	}
+
+	.link-card p {
+		max-width: 28ch;
+	}
+
+	.card-link {
+		font-weight: 600;
+	}
+
+	.facts {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		padding: clamp(1rem, 2.5vw, 1.3rem);
+		background: rgba(252, 250, 245, 0.88);
+	}
+
+	.fact {
+		padding: 0.2rem 1rem;
+	}
+
+	.fact + .fact {
+		border-left: 1px solid rgba(201, 189, 175, 0.72);
+	}
+
+	.fact-label,
+	.fact-value,
+	.fact-copy {
+		margin-bottom: 0;
+	}
+
+	.fact-label {
+		font-size: 0.76rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--petera-focus);
+	}
+
+	.fact-value {
+		margin-top: 0.4rem;
+		font-family: var(--petera-font-display);
+		font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+		font-weight: 300;
+		letter-spacing: -0.04em;
+		color: var(--petera-text);
+	}
+
+	.fact-copy {
+		margin-top: 0.4rem;
+		max-width: 28ch;
+	}
+
+	@media (max-width: 920px) {
+		.hero-split,
+		.link-grid,
+		.facts {
+			grid-template-columns: 1fr;
+		}
+
+		.fact {
+			padding: 0;
+		}
+
+		.fact + .fact {
+			padding-top: 1rem;
+			margin-top: 1rem;
+			border-left: 0;
+			border-top: 1px solid rgba(201, 189, 175, 0.72);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.hero-panel,
+		.link-card,
+		.facts {
+			border-radius: 16px;
+		}
+	}
+</style>

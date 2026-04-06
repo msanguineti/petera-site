@@ -1,4 +1,8 @@
 ---
+import '@fontsource/noto-sans/400.css';
+import '@fontsource/noto-sans/500.css';
+import '@fontsource/noto-sans/700.css';
+import '@fontsource/noto-sans-display/300.css';
 import '../styles/global.css';
 import { siteConfig } from '../config/site';
 
@@ -7,10 +11,18 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = 'Petera is a lightweight reminder app for things that matter but do not happen at an exact time. Local-first, calm, and privacy-minded.' } = Astro.props;
+const { title, description = 'Petera is a reminder app that brings things back to your attention over time.' } = Astro.props;
 const path = Astro.url.pathname;
 
+function isConfigured(value: string, placeholder: string) {
+	return value.trim() !== placeholder;
+}
+
 const pageTitle = title === 'Petera' ? title : `${title} | Petera`;
+const hasSupportEmail = isConfigured(siteConfig.supportEmail, 'YOUR_CONTACT_EMAIL');
+const hasOwnerEntity = isConfigured(siteConfig.ownerEntity, 'YOUR_NAME_OR_ENTITY');
+const hasCopyrightYear = isConfigured(siteConfig.copyrightYear, 'YEAR');
+const supportLabel = hasSupportEmail ? siteConfig.supportEmail : 'Support details';
 const navItems = [
 	{ href: '/', label: 'Home' },
 	{ href: '/privacy', label: 'Privacy' },
@@ -38,7 +50,7 @@ const navItems = [
 		<header class="site-header">
 			<div class="shell header-inner">
 				<a class="brand-link" href="/" aria-label="Petera home">
-					<img src="/assets/brand-mark.svg" alt="" width="28" height="28" />
+					<img src="/assets/petera-foreground.svg" alt="" width="32" height="32" />
 					<span>Petera</span>
 				</a>
 				<nav aria-label="Primary">
@@ -65,7 +77,7 @@ const navItems = [
 			<div class="shell footer-grid">
 				<div class="copy">
 					<p class="footer-title">Petera</p>
-					<p>Petera is a lightweight reminder app for things that matter but do not happen at an exact time.</p>
+					<p>Support, privacy, terms, and store links in one place.</p>
 				</div>
 				<div>
 					<p class="footer-title">Pages</p>
@@ -78,8 +90,13 @@ const navItems = [
 				</div>
 				<div>
 					<p class="footer-title">Contact</p>
-					<p><a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a></p>
-					<p class="small-note">Copyright © {siteConfig.copyrightYear} {siteConfig.ownerEntity}</p>
+					<p>
+						<a href={hasSupportEmail ? `mailto:${siteConfig.supportEmail}` : '/support'}>{supportLabel}</a>
+					</p>
+					<p class="small-note">
+						{hasCopyrightYear ? `Copyright ${siteConfig.copyrightYear}` : 'Copyright details pending'}
+						{hasOwnerEntity ? ` ${siteConfig.ownerEntity}` : ''}
+					</p>
 				</div>
 			</div>
 		</footer>
