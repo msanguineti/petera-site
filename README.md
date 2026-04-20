@@ -1,105 +1,41 @@
-# Petera Website
+# Petera App Site
 
-Static Astro site for the Petera website. The site includes four core pages:
+Static companion site for Petera.
 
-- Home
-- Privacy
-- Support
-- Terms
+## What it is
 
-It is intentionally static and GitHub Pages compatible.
+- Static output only.
+- Suitable for GitHub Pages.
+- No dependency on the main app's source files or assets at runtime.
+- Product copy and palette cues are copied into this project so it can stand alone.
 
-## Local development
+## Commands
 
-From the project root:
+- `npm install`
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
 
-```sh
-npm install
-npm run dev
-```
+## GitHub Pages
 
-The dev server runs at `http://localhost:4321` by default.
+This project is configured for static hosting.
 
-## Build and preview
+- `astro.config.mjs` sets `output: 'static'`.
+- When built on GitHub Actions, `site` and `base` are inferred from `GITHUB_REPOSITORY_OWNER` and `GITHUB_REPOSITORY`.
+- Override them with `SITE_URL` and `BASE_PATH` if you use a custom domain or a different subpath.
 
-```sh
-npm run build
-npm run preview
-```
+This folder includes a `.github/workflows/deploy.yml` that works when `app-site` is its own repository.
 
-Static output is generated in `dist/`.
+If you keep this project nested inside another repository instead of splitting it out:
 
-## Centralized site values (.env)
+- move the workflow file to the host repo root
+- set the Astro action `with.path` value to `app-site`
 
-This project reads publish-time values from environment variables through `src/config/site.ts`.
+## Source alignment
 
-1. Copy `.env.example` to `.env`.
-2. Fill in the values once.
-3. Run `npm run dev` or `npm run build`.
+The site content is based on the current Petera specs and app copy:
 
-Variables:
-
-- `PUBLIC_OWNER_ENTITY`
-- `PUBLIC_SUPPORT_EMAIL`
-- `PUBLIC_EFFECTIVE_DATE`
-- `PUBLIC_COUNTRY_OR_JURISDICTION`
-- `PUBLIC_JURISDICTION`
-- `PUBLIC_APP_STORE_URL`
-- `PUBLIC_PLAY_STORE_URL`
-- `PUBLIC_COPYRIGHT_YEAR`
-
-## GitHub Pages deployment
-
-This project is configured for static output in `astro.config.mjs`.
-
-1. Set `site` and `base` in `astro.config.mjs`.
-2. Build with `npm run build`.
-3. Publish the `dist/` contents via your GitHub Pages workflow (for example, a Pages action that uploads `dist/`).
-
-Typical configuration examples:
-
-- User site repo (for example, `username.github.io`):
-	- `site: 'https://username.github.io'`
-	- `base: '/'`
-- Project site repo (for example, `petera-site`):
-	- `site: 'https://username.github.io'`
-	- `base: '/petera-site'`
-
-## Project structure
-
-```text
-/
-├── public/
-│   └── assets/
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── privacy.astro
-│   │   ├── support.astro
-│   │   └── terms.astro
-│   └── styles/
-│       └── global.css
-└── astro.config.mjs
-```
-
-## Pre-publish checklist
-
-Before publishing:
-
-- Verify `.env` has final values.
-- Set final GitHub Pages URL in `astro.config.mjs` (`site` and `base`).
-
-## Final factual checks before launch
-
-Confirm these statements are still true:
-
-- Petera is local-first
-- Reminder data stays on device unless exported by the user
-- Local export/import are available
-- Encrypted export is the default path
-- Import is replace-only
-- History is optional and off by default
-- Insights are optional and off by default
-- There is no sync-centered public product promise yet
+- calm, persistent reminder behaviour
+- meaningful time windows instead of exact-time alarms
+- local-first privacy stance
+- mobile-first presentation

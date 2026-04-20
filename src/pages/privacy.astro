@@ -1,147 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { siteConfig } from '../config/site';
+import SiteLayout from '../layouts/SiteLayout.astro'
+
+const homeHref = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`
 ---
 
-<Layout
-	title="Privacy Policy"
-	description="How Petera handles data in the app and on this website."
+<SiteLayout
+  title="Privacy"
+  description="Petera stores reminders on your device by default."
+  path="/privacy/"
 >
-	<section class="article">
-		<div class="shell">
-			<h1>Privacy Policy</h1>
-			<p class="muted">Effective date: <span class="code-like">{siteConfig.effectiveDate}</span></p>
-			<p class="copy">
-				Petera is provided by <span class="code-like">{siteConfig.ownerEntity}</span> ("we", "us",
-				or "our"). This Privacy Policy explains how Petera currently handles information when
-				you use the app and this website.
-			</p>
+  <section class="section-block">
+    <div class="container prose-shell">
+      <p class="eyebrow">Privacy</p>
+      <h1 class="page-title">Petera stores reminders on your device by default.</h1>
+      <p class="page-intro">
+        Your data leaves the device only if you choose to export it.
+      </p>
 
-			<div class="intro-note copy">
-				<p>
-					In short: Petera is built around on-device reminder data, local notifications, and
-					user-initiated export and import. This page explains what that means in practice.
-				</p>
-			</div>
+      <div class="prose-card">
+        <h2>On-device storage</h2>
+        <ul class="plain-list">
+          <li>Reminder data is stored on your device.</li>
+          <li>Saved settings stay on your device unless you replace them with an import.</li>
+          <li>Privacy and data controls are available in Settings.</li>
+        </ul>
+      </div>
 
-			<div class="review-note copy" role="note">
-				This is a practical starter privacy policy and should be reviewed before publishing.
-			</div>
+      <div class="prose-card">
+        <h2>Insights and suggestions</h2>
+        <ul class="plain-list">
+          <li>Insights and suggestions are processed on-device.</li>
+        </ul>
+      </div>
 
-			<h2>1. Summary</h2>
-			<p>
-				Petera is designed to be local-first. In the current version: reminder data is stored on
-				your device, the app uses on-device notifications to surface reminders, data stays on
-				your device unless you explicitly export it, and the app currently focuses on local
-				export and local import rather than cloud sync.
-			</p>
-			<p>
-				This website is intended to provide basic product, privacy, and support information.
-			</p>
+      <div class="prose-card">
+        <h2>Export and restore</h2>
+        <p>
+          You can export your data from Settings and restore it later. Export and restore
+          are manual actions.
+        </p>
+      </div>
 
-			<h2>2. Information stored in the app</h2>
-			<p>Depending on how you use Petera, the app may store information such as:</p>
-			<ul>
-				<li>Reminder titles and reminder settings</li>
-				<li>Reminder timing details, such as one-time or repeating setup</li>
-				<li>Selected weekdays, time-of-day filters, urgency, spread, and quiet hours</li>
-				<li>App preferences such as theme and language</li>
-				<li>Optional History records if you choose to enable History</li>
-				<li>Optional Insights activity data if you choose to enable Insights</li>
-			</ul>
-
-			<h2>3. Local-first storage</h2>
-			<p>Petera is currently built around local storage on your device.</p>
-			<ul>
-				<li>Reminder data is stored locally on device</li>
-				<li>Reminders are surfaced using local notifications</li>
-				<li>Local export and local import are available under the app's data settings</li>
-				<li>Sync features are not part of the current shipped scope</li>
-			</ul>
-
-			<h2>4. Export and import</h2>
-			<p>Petera includes user-initiated export and import features. In the current version:</p>
-			<ul>
-				<li>Export is manual</li>
-				<li>Import is manual</li>
-				<li>Encrypted export is the default path</li>
-				<li>Import is currently a replace-local-data flow rather than a merge flow</li>
-			</ul>
-			<p>
-				If you choose to export your data, the file is created because of your action. You are
-				responsible for how you store, share, or back up exported files after export.
-			</p>
-
-			<h2>5. Optional History and Insights</h2>
-			<p>Some data features in Petera are optional.</p>
-			<p><strong>History</strong></p>
-			<ul>
-				<li>History is off by default</li>
-				<li>If enabled, it stores user-meaningful reminder events such as done, paused, or deleted permanently</li>
-			</ul>
-			<p><strong>Insights</strong></p>
-			<ul>
-				<li>Insights are off by default</li>
-				<li>If enabled, the app can store local reminder activity data to generate descriptive insights</li>
-				<li>Behavior-based suggestions are also optional and off by default</li>
-			</ul>
-			<p>In the current version, insights analysis data is local-only and is excluded from export.</p>
-
-			<h2>6. Notifications</h2>
-			<p>
-				Petera uses notifications so reminders can appear on your device at meaningful times.
-				These notifications are part of the core reminder experience. If notification permission
-				is disabled, the app may be less able to surface reminders when you are not already using it.
-			</p>
-
-			<h2>7. Data sharing and sale</h2>
-			<p>
-				In the current product direction, Petera is not built around selling personal data. We
-				do not describe the app as an advertising or data-broker service.
-			</p>
-
-			<h2>8. Accounts and sync</h2>
-			<p>
-				The current version of Petera is designed around local reminder management, not
-				account-based cloud sync. If account, sync, or online backup features are introduced in
-				the future, this Privacy Policy should be updated before those changes are released broadly.
-			</p>
-
-			<h2>9. Website data</h2>
-			<p>This website is intended to be a simple static informational site.</p>
-			<ul>
-				<li>Advertising trackers are not intended for this site</li>
-				<li>Analytics scripts are not intended for this site</li>
-				<li>Marketing cookies are not intended for this site</li>
-				<li>Account login systems are not intended for this site</li>
-			</ul>
-			<p>
-				However, the site may be hosted by third-party infrastructure such as GitHub Pages and
-				related delivery services, which may process standard technical request data as part of
-				normal web hosting operations. The exact hosting setup should be reviewed before
-				publication so this section remains accurate.
-			</p>
-
-			<h2>10. Children's privacy</h2>
-			<p>
-				Petera is not specifically directed to children under the age of 13. If you believe
-				personal information from a child has been provided in a way that creates a legal issue,
-				contact us at <span class="code-like">{siteConfig.supportEmail}</span>.
-			</p>
-
-			<h2>11. Changes to this policy</h2>
-			<p>
-				We may update this Privacy Policy from time to time. When we do, we may update the
-				effective date shown above.
-			</p>
-
-			<h2>12. Contact</h2>
-			<p>If you have questions about this Privacy Policy, you can contact:</p>
-			<ul>
-				<li><span class="code-like">{siteConfig.ownerEntity}</span></li>
-				<li><span class="code-like">{siteConfig.supportEmail}</span></li>
-				<li><span class="code-like">{siteConfig.countryOrJurisdiction}</span> if applicable</li>
-			</ul>
-		</div>
-	</section>
-</Layout>
+      <div class="prose-actions">
+        <a class="button button-primary" href={homeHref}>Back to home</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

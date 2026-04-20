@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Petera social card">
+  <defs>
+    <g id="petera-petal">
+      <path d="M0,-274C56,-274 108,-228 108,-166C108,-114 70,-64 0,-18C-70,-64 -108,-114 -108,-166C-108,-228 -56,-274 0,-274Z" />
+    </g>
+  </defs>
+
+  <rect width="1200" height="630" fill="#7189E7" />
+
+  <g transform="translate(1015 355) scale(0.92)" fill="#FFFFFF" opacity="0.1">
+    <use href="#petera-petal" transform="rotate(180)" />
+    <use href="#petera-petal" transform="rotate(252)" />
+    <use href="#petera-petal" transform="rotate(324)" />
+    <use href="#petera-petal" transform="rotate(36)" />
+    <use href="#petera-petal" transform="rotate(108)" />
+    <circle r="44" />
+  </g>
+
+  <g transform="translate(110 315)">
+    <text
+      x="0"
+      y="-12"
+      fill="#FFFFFF"
+      font-size="104"
+      font-family="Noto Sans Display, Noto Sans, Arial, sans-serif"
+      font-weight="500"
+    >
+      Petera
+    </text>
+    <text
+      x="0"
+      y="58"
+      fill="#EAF0FF"
+      font-size="34"
+      font-family="Noto Sans, Arial, sans-serif"
+      font-weight="500"
+    >
+      Add reminder · Manage follow-ups
+    </text>
+  </g>
+</svg>
