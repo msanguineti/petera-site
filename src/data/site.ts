@@ -6,15 +6,15 @@ export const siteMeta = {
 } as const
 
 export const navLinks = [
-  { href: '/#screens', label: 'Screens' },
   { href: '/#features', label: 'Features' },
+  { href: '/#screens', label: 'Screens' },
   { href: '/privacy/', label: 'Privacy' },
 ] as const
 
 export const heroBullets = [
-  'Add reminders from Home',
-  'Choose Today, Tomorrow, This week, or Pick by date',
-  'Set time of day, urgency, and returns after done',
+  'Add a reminder in seconds with quick choices for when it matters',
+  'Shape the reminder as much as you need with the editor',
+  'Get nudged until you deal with it, and customize how it behaves with settings',
 ] as const
 
 export const featureCards = [
@@ -31,7 +31,7 @@ export const featureCards = [
   {
     title: 'Clear editor and settings',
     body:
-      'Adjust time of day, urgency, returns after done, quiet hours, preferred days, notifications, theme, and language.',
+      'Adjust how the reminders behave and customize your experience.',
   },
 ] as const
 
@@ -39,12 +39,12 @@ export const howItWorks = [
   {
     title: 'Add a reminder',
     body:
-      'Start from Home and use quick add or open the full editor.',
+      'Use the quick add button to enter a title and pick when it matters, or access the editor for more options.',
   },
   {
     title: 'Choose when to be reminded',
     body:
-      'Pick options like Today, Tomorrow, This week, or Pick by date, then choose time of day and urgency.',
+      'Pick the timing that works for you, whether it’s later today, next week, or a specific date.',
   },
   {
     title: 'Manage follow-up',
@@ -66,37 +66,37 @@ export const secondaryFacts = [
   },
   {
     label: 'Editor',
-    value: 'When, time of day, urgency, returns after done',
+    value: 'Shape the reminder as much as you need with what you need',
   },
   {
     label: 'Settings',
-    value: 'Quiet hours, preferred days, notifications, theme, language',
+    value: 'The rest of the experience is in your control with settings for anything you want to adjust',
   },
 ] as const
 
 export const screenshots = [
   {
     src: 'petera-main_screen.png',
-    alt: 'Petera Home screen with Today, Upcoming, and Paused sections.',
+    alt: 'Petera Home screen with tightly grouped reminders.',
     title: 'Home',
-    body: 'The main screen shows current reminders, upcoming reminders, and paused reminders.',
+    body: 'See what needs attention now and what is coming up next.',
   },
   {
     src: 'petera-quick_add_reminder.png',
-    alt: 'Petera quick add sheet with Today, Tomorrow, This week, and Pick by date options.',
+    alt: "Petera quick add sheet with common timing options and 'Don't let me forget` options.",
     title: 'Quick add',
     body: 'Quick add keeps the first step short with a title field and common timing options.',
   },
   {
     src: 'petera-editor_screen.png',
-    alt: 'Petera reminder editor with fields for when, time of day, urgency, and returns after done.',
+    alt: 'Petera reminder editor with fields for whatever you need.',
     title: 'Editor',
-    body: 'The full editor lets you adjust timing, time of day, urgency, and returns after done.',
+    body: 'The full editor lets you adapt the reminder to your needs.',
   },
   {
     src: 'petera-settings_screen.png',
     alt: 'Petera settings screen with quiet hours, preferred days, notifications, theme, language, data, privacy, and about.',
     title: 'Settings',
-    body: 'Settings include quiet hours, preferred days, notifications, theme, language, data, and privacy.',
+    body: 'Customize your experience and adjust how reminders behave.',
   },
 ] as const
