@@ -20,7 +20,7 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
   : `${import.meta.env.BASE_URL}/`
 const origin = Astro.site ? new URL(basePath, Astro.site) : new URL(basePath, Astro.url)
 const canonical = new URL(path.replace(/^\//, ''), origin).toString()
-const socialImage = new URL('social-card.svg', origin).toString()
+const socialImage = new URL('social-card.png', origin).toString()
 const hrefFromBase = (href: string) => `${basePath}${href.replace(/^\//, '')}`
 ---
 

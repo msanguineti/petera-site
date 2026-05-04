@@ -70,7 +70,7 @@ export const secondaryFacts = [
   },
   {
     label: 'Settings',
-    value: 'The rest of the experience is in your control with settings for anything you want to adjust',
+    value: 'Quiet hours, preferred days, notifications, theme, language, and more',
   },
 ] as const
 
