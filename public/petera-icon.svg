@@ -1,9 +1,9 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1024" height="1024" rx="232" fill="#F5F1E8"/>
+  <rect width="1024" height="1024" fill="#F4F1EA"/>
   <defs>
     <g id="petera-forget-me-not-petal">
-      <path d="M0,-274C56,-274 108,-228 108,-166C108,-114 70,-64 0,-18C-70,-64 -108,-114 -108,-166C-108,-228 -56,-274 0,-274Z" fill="#7B97F8"/>
-      <path d="M0,-250C34,-250 62,-222 62,-188C62,-154 40,-126 0,-92C-40,-126 -62,-154 -62,-188C-62,-222 -34,-250 0,-250Z" fill="#AAB9FB" opacity="0.92"/>
+      <path d="M0,-274C56,-274 108,-228 108,-166C108,-114 70,-64 0,-18C-70,-64 -108,-114 -108,-166C-108,-228 -56,-274 0,-274Z" fill="#7189E7"/>
+      <path d="M0,-250C34,-250 62,-222 62,-188C62,-154 40,-126 0,-92C-40,-126 -62,-154 -62,-188C-62,-222 -34,-250 0,-250Z" fill="#D9E0FB" opacity="0.75"/>
     </g>
   </defs>
 
@@ -13,8 +13,8 @@
     <use href="#petera-forget-me-not-petal" transform="rotate(324)"/>
     <use href="#petera-forget-me-not-petal" transform="rotate(36)"/>
     <use href="#petera-forget-me-not-petal" transform="rotate(108)"/>
-    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#ECE4D7"/>
+    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#ECE6DA"/>
     <circle r="56" fill="#EBA937"/>
-    <circle r="26" fill="#2A251F"/>
+    <circle r="26" fill="#242118"/>
   </g>
 </svg>
