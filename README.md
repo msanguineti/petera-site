@@ -16,12 +16,12 @@ npm run dev       # start local dev server at http://localhost:4321
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Start the local development server |
-| `npm run build` | Build the static site into `dist/` |
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm run dev`     | Start the local development server   |
+| `npm run build`   | Build the static site into `dist/`   |
 | `npm run preview` | Preview the production build locally |
-| `npm run check` | Run Astro's TypeScript type checker |
+| `npm run check`   | Run Astro's TypeScript type checker  |
 
 ## Project structure
 

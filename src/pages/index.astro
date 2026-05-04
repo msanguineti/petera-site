@@ -9,6 +9,8 @@ import {
   secondaryFacts,
   siteMeta,
 } from '../data/site'
+import { Image } from 'astro:assets'
+import mainScreenImage from '../images/petera-main_screen.png'
 ---
 
 <SiteLayout title={siteMeta.title} description={siteMeta.description} path="/">
@@ -37,11 +39,10 @@ import {
       </div>
 
       <div class="hero-shot">
-        <img
-          src="petera-main_screen.png"
+        <Image
+          src={mainScreenImage}
           alt="Petera Home screen with Today, Upcoming, and Paused sections."
-          width="1080"
-          height="2424"
+          loading="eager"
         />
       </div>
     </div>
@@ -73,7 +74,7 @@ import {
       <div class="screen-grid">
         {screenshots.map((screen) => (
           <article class="screen-card">
-            <img
+            <Image
               class="screen-image"
               src={screen.src}
               alt={screen.alt}
