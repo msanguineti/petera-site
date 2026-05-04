@@ -7,13 +7,48 @@
 
   <rect width="1200" height="630" fill="#7189E7" />
 
-  <g transform="translate(1015 355) scale(0.92)" fill="#FFFFFF" opacity="0.1">
+  <g transform="translate(1015 355) scale(0.92) rotate(0)" fill="#fff" opacity="0.1">
     <use href="#petera-petal" transform="rotate(180)" />
     <use href="#petera-petal" transform="rotate(252)" />
     <use href="#petera-petal" transform="rotate(324)" />
     <use href="#petera-petal" transform="rotate(36)" />
     <use href="#petera-petal" transform="rotate(108)" />
-    <circle r="44" />
+    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#7189E7"/>
+    <circle r="56" />
+    <circle r="26" fill="#7189E7" />
+  </g>
+
+  <g transform="translate(185 205) scale(0.4) rotate(45)" fill="#fff" opacity="0.1">
+    <use href="#petera-petal" transform="rotate(180)" />
+    <use href="#petera-petal" transform="rotate(252)" />
+    <use href="#petera-petal" transform="rotate(324)" />
+    <use href="#petera-petal" transform="rotate(36)" />
+    <use href="#petera-petal" transform="rotate(108)" />
+    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#7189E7"/>
+    <circle r="56" />
+    <circle r="26" fill="#7189E7" />
+  </g>
+
+  <g transform="translate(600 150) scale(0.6) rotate(30)" fill="#fff" opacity="0.1">
+    <use href="#petera-petal" transform="rotate(180)" />
+    <use href="#petera-petal" transform="rotate(252)" />
+    <use href="#petera-petal" transform="rotate(324)" />
+    <use href="#petera-petal" transform="rotate(36)" />
+    <use href="#petera-petal" transform="rotate(108)" />
+    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#7189E7"/>
+    <circle r="56" />
+    <circle r="26" fill="#7189E7" />
+  </g>
+
+  <g transform="translate(300 600) scale(0.5) rotate(15)" fill="#fff" opacity="0.1">
+    <use href="#petera-petal" transform="rotate(180)" />
+    <use href="#petera-petal" transform="rotate(252)" />
+    <use href="#petera-petal" transform="rotate(324)" />
+    <use href="#petera-petal" transform="rotate(36)" />
+    <use href="#petera-petal" transform="rotate(108)" />
+    <path d="M0,-92L16,-28L82,-28L28,12L48,74L0,36L-48,74L-28,12L-82,-28L-16,-28Z" fill="#7189E7"/>
+    <circle r="56" />
+    <circle r="26" fill="#7189E7" />
   </g>
 
   <g transform="translate(110 315)">
@@ -24,6 +59,7 @@
       font-size="104"
       font-family="Noto Sans Display, Noto Sans, Arial, sans-serif"
       font-weight="500"
+      font-variant="small-caps"
     >
       Petera
     </text>
