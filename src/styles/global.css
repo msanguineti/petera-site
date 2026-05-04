@@ -42,6 +42,81 @@
   }
 }
 
+/* Manual theme overrides — win over the media query via source order */
+[data-theme="light"] {
+  --bg: #f4f1ea;
+  --bg-muted: #ece6da;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #fcfaf5;
+  --surface-deep: #252a38;
+  --line: #ddd4c8;
+  --line-strong: #c9bdaf;
+  --text: #242118;
+  --text-muted: #6e6558;
+  --text-on-dark: #f7f3ec;
+  --accent: #7189e7;
+  --accent-pressed: #5c74d5;
+  --accent-soft: #d9e0fb;
+  --success: #2d7752;
+  --shadow: 0 24px 60px rgba(31, 36, 52, 0.14);
+}
+
+[data-theme="dark"] {
+  --bg: #171b24;
+  --bg-muted: #1e2430;
+  --surface: rgba(43, 52, 68, 0.8);
+  --surface-strong: #202734;
+  --surface-deep: #f1ebdd;
+  --line: #374255;
+  --line-strong: #49546a;
+  --text: #f6f1e8;
+  --text-muted: #c0b8aa;
+  --text-on-dark: #1e2230;
+  --accent: #89a0ff;
+  --accent-pressed: #9fb0ff;
+  --accent-soft: #2e3d67;
+  --success: #74c997;
+  --shadow: 0 24px 60px rgba(8, 12, 20, 0.34);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+/* Icon visibility: show moon in light mode, sun in dark mode */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
 *,
 *::before,
 *::after {
@@ -116,6 +191,12 @@ img {
   width: 2.5rem;
   height: 2.5rem;
   flex: 0 0 auto;
+}
+
+.header-end {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .site-nav {
