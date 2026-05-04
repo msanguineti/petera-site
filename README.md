@@ -1,41 +1,57 @@
-# Petera App Site
+# Petera Site
 
-Static companion site for Petera.
+Static marketing site for the Petera app, built with [Astro](https://astro.build).
 
-## What it is
+## Requirements
 
-- Static output only.
-- Suitable for GitHub Pages.
-- No dependency on the main app's source files or assets at runtime.
-- Product copy and palette cues are copied into this project so it can stand alone.
+- Node.js ≥ 22.12.0
+- npm
 
-## Commands
+## Getting started
 
-- `npm install`
-- `npm run dev`
-- `npm run build`
-- `npm run preview`
+```sh
+npm install
+npm run dev       # start local dev server at http://localhost:4321
+```
 
-## GitHub Pages
+## Scripts
 
-This project is configured for static hosting.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the local development server |
+| `npm run build` | Build the static site into `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run check` | Run Astro's TypeScript type checker |
 
-- `astro.config.mjs` sets `output: 'static'`.
-- When built on GitHub Actions, `site` and `base` are inferred from `GITHUB_REPOSITORY_OWNER` and `GITHUB_REPOSITORY`.
-- Override them with `SITE_URL` and `BASE_PATH` if you use a custom domain or a different subpath.
+## Project structure
 
-This folder includes a `.github/workflows/deploy.yml` that works when `app-site` is its own repository.
+```
+src/
+  data/site.ts        # All page copy and structured content
+  layouts/
+    SiteLayout.astro  # Shared HTML shell (head, nav, footer)
+  pages/
+    index.astro       # Landing page
+    privacy.astro     # Privacy policy page
+    404.astro         # Not found page
+  styles/
+    global.css        # Global styles
+public/               # Static assets served as-is
+astro.config.mjs      # Astro configuration
+```
 
-If you keep this project nested inside another repository instead of splitting it out:
+Most content edits only require changes to `src/data/site.ts`.
 
-- move the workflow file to the host repo root
-- set the Astro action `with.path` value to `app-site`
+## Deployment
 
-## Source alignment
+Pushes to `main` trigger the GitHub Actions workflow at `.github/workflows/deploy.yml`, which:
 
-The site content is based on the current Petera specs and app copy:
+1. Runs `astro check` (type check — blocks deploy on failure)
+2. Builds the static site with `withastro/action`
+3. Deploys to GitHub Pages
 
-- calm, persistent reminder behaviour
-- meaningful time windows instead of exact-time alarms
-- local-first privacy stance
-- mobile-first presentation
+The live site is at [petera.app](https://petera.app).
+
+### Site URL
+
+`site` is hardcoded to `https://petera.app` in `astro.config.mjs`. No `base` is needed when using a custom domain, per the [Astro GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/). To change the domain, update `site` in `astro.config.mjs`.
