@@ -48,7 +48,7 @@ export const howItWorks = [
   },
   {
     title: 'Manage follow-up',
-    body: 'Mark it done, bring it back later, pause it or get rid of it. It\'s up to you.',
+    body: "Mark it done, bring it back later, pause it or get rid of it. It's up to you.",
   },
 ] as const
 
@@ -85,7 +85,7 @@ export const screenshots = [
     src: quickAddReminderImage,
     alt: "Petera quick add sheet with common timing options and 'Don't let me forget` options.",
     title: 'Quick add',
-    body: 'Title and timing. That\'s the whole first step.',
+    body: "Title and timing. That's the whole first step.",
   },
   {
     src: editorScreenImage,
