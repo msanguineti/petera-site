@@ -1,5 +1,5 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1024" height="1024" fill="#F4F1EA"/>
+  <!-- <rect width="1024" height="1024" fill="#F4F1EA"/> -->
   <defs>
     <g id="petera-forget-me-not-petal">
       <path d="M0,-274C56,-274 108,-228 108,-166C108,-114 70,-64 0,-18C-70,-64 -108,-114 -108,-166C-108,-228 -56,-274 0,-274Z" fill="#7189E7"/>
@@ -7,7 +7,7 @@
     </g>
   </defs>
 
-  <g transform="translate(512 512) scale(1.1)">
+  <g transform="translate(512 512) scale(1.65)">
     <use href="#petera-forget-me-not-petal" transform="rotate(180)"/>
     <use href="#petera-forget-me-not-petal" transform="rotate(252)"/>
     <use href="#petera-forget-me-not-petal" transform="rotate(324)"/>
