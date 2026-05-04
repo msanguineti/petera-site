@@ -22,6 +22,9 @@ jobs:
         uses: withastro/action@v6
         with:
           node-version: 24
+        env:
+          SITE_URL: https://petera.app
+          BASE_PATH: /
 
   deploy:
     runs-on: ubuntu-latest
