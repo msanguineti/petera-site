@@ -124,11 +124,57 @@ const hrefFromBase = (href: string) => `${basePath}${href.replace(/^\//, "")}`;
                   d="m6.34 17.66-1.41 1.41"></path><path
                   d="m19.07 4.93-1.41 1.41"></path></svg
               >
-
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
             </button>
           </div>
+          <button
+            class="nav-burger"
+            id="nav-burger"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            type="button"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="burger-open" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="burger-close" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
         </div>
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+          <div class="container mobile-nav-inner">
+            {
+              navLinks.map((link) => (
+                <a href={hrefFromBase(link.href)}>{link.label}</a>
+              ))
+            }
+            <button
+              class="theme-toggle mobile-theme-toggle"
+              id="theme-toggle-mobile"
+              aria-label="Toggle dark mode"
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-sun"
+                ><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"
+                ></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"
+                ></path><path d="m17.66 17.66 1.41 1.41"></path><path
+                  d="M2 12h2"></path><path d="M20 12h2"></path><path
+                  d="m6.34 17.66-1.41 1.41"></path><path
+                  d="m19.07 4.93-1.41 1.41"></path></svg
+              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+              <span>Toggle theme</span>
+            </button>
+          </div>
+        </nav>
       </header>
       <main>
         <slot />
@@ -151,17 +197,53 @@ const hrefFromBase = (href: string) => `${basePath}${href.replace(/^\//, "")}`;
 </html>
 
 <script>
-  const btn = document.getElementById("theme-toggle");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const current = document.documentElement.dataset.theme;
-      const systemDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      const isDark = current === "dark" || (!current && systemDark);
-      const next = isDark ? "light" : "dark";
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem("theme", next);
-    });
+  // Theme toggle (desktop + mobile)
+  function applyTheme(next: string) {
+    document.documentElement.dataset.theme = next
+    localStorage.setItem('theme', next)
   }
+  function toggleTheme() {
+    const current = document.documentElement.dataset.theme
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isDark = current === 'dark' || (!current && systemDark)
+    applyTheme(isDark ? 'light' : 'dark')
+  }
+  document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme)
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', toggleTheme)
+
+  // Burger menu
+  const burger = document.getElementById('nav-burger')
+  const mobileNav = document.getElementById('mobile-nav')
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true'
+    burger.setAttribute('aria-expanded', String(!open))
+    burger.setAttribute('aria-label', open ? 'Open menu' : 'Close menu')
+    mobileNav?.setAttribute('aria-hidden', String(open))
+    mobileNav?.classList.toggle('is-open', !open)
+  })
+  // Close on nav link tap, then scroll to anchor after panel closes
+  mobileNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href') ?? ''
+      const hashIndex = href.indexOf('#')
+      burger?.setAttribute('aria-expanded', 'false')
+      burger?.setAttribute('aria-label', 'Open menu')
+      mobileNav.setAttribute('aria-hidden', 'true')
+      mobileNav.classList.remove('is-open')
+      if (hashIndex !== -1) {
+        e.preventDefault()
+        const hash = href.slice(hashIndex)
+        // Wait for the panel close transition (220ms) then scroll
+        setTimeout(() => {
+          const target = document.querySelector(hash)
+          if (target) {
+            const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0
+            const top = target.getBoundingClientRect().top + window.scrollY - headerHeight
+            window.scrollTo({ top, behavior: 'smooth' })
+            history.pushState(null, '', hash)
+          }
+        }, 230)
+      }
+    })
+  })
 </script>
