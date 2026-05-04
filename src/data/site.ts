@@ -17,45 +17,45 @@ export const navLinks = [
 ] as const
 
 export const heroBullets = [
-  'Add a reminder in seconds with quick choices for when it matters',
-  'Shape the reminder as much as you need with the editor',
-  'Get nudged until you deal with it, and customize how it behaves with settings',
+  'Pick a title and when it should show up. Done in seconds.',
+  'Use the editor when you need more control over timing or details.',
+  'Settings let you set quiet hours, preferred days, and notification style.',
 ] as const
 
 export const featureCards = [
   {
-    title: 'Simple Home screen',
+    title: 'Home screen',
     body: 'See what needs attention now, what is coming up next, and what is paused.',
   },
   {
     title: 'Fast add flow',
-    body: 'Add a reminder in a few taps with quick choices for when it matters.',
+    body: 'Add a reminder in a few taps.',
   },
   {
-    title: 'Clear editor and settings',
-    body: 'Adjust how the reminders behave and customize your experience.',
+    title: 'Editor and settings',
+    body: 'Control how each reminder behaves.',
   },
 ] as const
 
 export const howItWorks = [
   {
     title: 'Add a reminder',
-    body: 'Use the quick add button to enter a title and pick when it matters, or access the editor for more options.',
+    body: 'Tap the add button, enter a title, and pick when it should show up. Open the editor for more options.',
   },
   {
     title: 'Choose when to be reminded',
-    body: 'Pick the timing that works for you, whether it’s later today, next week, or a specific date.',
+    body: 'Later today, next week, or a specific date. You pick.',
   },
   {
     title: 'Manage follow-up',
-    body: 'Mark it done, bring it back later, or turn on returns after done.',
+    body: 'Mark it done, bring it back later, pause it or get rid of it. It\'s up to you.',
   },
 ] as const
 
 export const privacyPoints = [
   'Petera stores reminders on your device.',
   'Your data leaves the device only if you export it.',
-  'Insights and suggestions are processed on-device.',
+  'On-device processing only.',
 ] as const
 
 export const secondaryFacts = [
@@ -65,7 +65,7 @@ export const secondaryFacts = [
   },
   {
     label: 'Editor',
-    value: 'Shape the reminder as much as you need with what you need',
+    value: 'Title, timing, recurrence, and more.',
   },
   {
     label: 'Settings',
@@ -85,18 +85,18 @@ export const screenshots = [
     src: quickAddReminderImage,
     alt: "Petera quick add sheet with common timing options and 'Don't let me forget` options.",
     title: 'Quick add',
-    body: 'Quick add keeps the first step short with a title field and common timing options.',
+    body: 'Title and timing. That\'s the whole first step.',
   },
   {
     src: editorScreenImage,
     alt: 'Petera reminder editor with fields for whatever you need.',
     title: 'Editor',
-    body: 'The full editor lets you adapt the reminder to your needs.',
+    body: 'Set urgency, recurrence, and anything else.',
   },
   {
     src: settingsScreenImage,
     alt: 'Petera settings screen with quiet hours, preferred days, notifications, theme, language, data, privacy, and about.',
     title: 'Settings',
-    body: 'Customize your experience and adjust how reminders behave.',
+    body: 'Quiet hours, preferred days, notifications, and more.',
   },
 ] as const
