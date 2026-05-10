@@ -7,39 +7,124 @@ const homeHref = import.meta.env.BASE_URL.endsWith('/')
 ---
 
 <SiteLayout
-  title="Privacy"
-  description="Petera stores reminders on your device by default."
+  title="Privacy Policy"
+  description="Petera is a local-first reminder app. This policy explains how Petera handles data."
   path="/privacy/"
 >
   <section class="section-block">
     <div class="container prose-shell">
       <p class="eyebrow">Privacy</p>
-      <h1 class="page-title">Petera stores reminders on your device by default.</h1>
+      <h1 class="page-title">Petera Privacy Policy</h1>
       <p class="page-intro">
-        Your data leaves the device only if you choose to export it.
+        Petera is a local-first reminder app. Petera does not require an account,
+        does not sync reminder data to a server, and does not include advertising,
+        analytics, or crash-reporting SDKs in the current release.
       </p>
 
       <div class="prose-card">
-        <h2>On-device storage</h2>
+        <h2>Policy details</h2>
         <ul class="plain-list">
-          <li>Reminder data is stored on your device.</li>
-          <li>Saved settings stay on your device unless you replace them with an import.</li>
-          <li>Privacy and data controls are available in Settings.</li>
+          <li>Effective date: 10 May 2026</li>
+          <li>App: Petera</li>
+          <li>
+            Privacy contact: <a class="text-link-inline" href="mailto:support@petera.app"
+              >support@petera.app</a
+            >
+          </li>
         </ul>
       </div>
 
       <div class="prose-card">
-        <h2>Insights and suggestions</h2>
+        <h2>Data stored on your device</h2>
+        <p>Petera stores app data locally on your device, including:</p>
         <ul class="plain-list">
-          <li>Insights and suggestions are processed on-device.</li>
+          <li>reminders you create</li>
+          <li>reminder scheduling state</li>
+          <li>local notification scheduling metadata</li>
+          <li>
+            app settings such as language, theme, quiet hours, preferred days, History,
+            and Insights settings
+          </li>
+          <li>optional local History entries</li>
+          <li>optional local Insights activity</li>
+          <li>a bounded local diagnostic event log used for troubleshooting</li>
         </ul>
-      </div>
-
-      <div class="prose-card">
-        <h2>Export and restore</h2>
         <p>
-          You can export your data from Settings and restore it later. Export and restore
-          are manual actions.
+          This data is used to provide Petera's reminder, notification, History,
+          Insights, data export/import, and troubleshooting features.
+        </p>
+      </div>
+
+      <div class="prose-card">
+        <h2>Data sent to the developer</h2>
+        <p>
+          Petera does not automatically send reminder data, usage data, analytics,
+          crash reports, or diagnostics to the developer.
+        </p>
+      </div>
+
+      <div class="prose-card">
+        <h2>User-initiated export, import, and sharing</h2>
+        <p>
+          Petera lets you manually export your local reminder data to a local JSON file.
+          Anyone with access to that exported file may be able to read its contents.
+        </p>
+        <p>
+          Petera also lets you manually import a Petera export file. Import replaces
+          local reminders and saved data settings on the device. History and Insights
+          data are cleared during import because they are not included in the export
+          file.
+        </p>
+        <p>
+          Petera can generate a diagnostic report when you open the support flow. The
+          diagnostic report may include reminder identifiers, scheduled notification
+          metadata, app settings, scheduler diagnostics, and recent structured app
+          events. Reminder names are excluded unless you choose to include them.
+          Diagnostic reports are saved or shared only when you choose to do so.
+        </p>
+        <p>
+          If you share an export file or diagnostic report using another app or service,
+          that app or service handles the shared file under its own privacy practices.
+        </p>
+      </div>
+
+      <div class="prose-card">
+        <h2>Notifications</h2>
+        <p>
+          Petera uses local notifications to surface reminders on your device.
+          Notification permission is controlled by your operating system. On Android,
+          Petera may ask for alarms and reminders access so scheduled local reminders
+          can be delivered reliably.
+        </p>
+      </div>
+
+      <div class="prose-card">
+        <h2>Data retention and deletion</h2>
+        <p>
+          Reminder data remains on your device until you edit or delete it, import a
+          replacement data file, clear app data, or uninstall Petera.
+        </p>
+        <p>
+          History and Insights data are retained locally for up to 30 days in the current
+          release. You can clear local History and Insights data from Settings.
+        </p>
+        <p>
+          Because Petera does not automatically collect or store your data on developer
+          servers in the current release, the developer does not hold a copy of your
+          local app data to delete.
+        </p>
+      </div>
+
+      <div class="prose-card">
+        <h2>Children</h2>
+        <p>Petera is not directed to children.</p>
+      </div>
+
+      <div class="prose-card">
+        <h2>Changes</h2>
+        <p>
+          This policy may be updated when Petera's features or data practices change.
+          The effective date above will be updated when the published policy changes.
         </p>
       </div>
 
